@@ -6,7 +6,7 @@ import React from "react";
 const HeroSection = () => (
   <section className="bg-blue-600 text-white py-20">
     <div className="container mx-auto px-6 text-center">
-      <h1 className="text-5xl font-bold mb-2 text-black">Summer Sale</h1>
+      <h1 className="text-5xl font-bold mb-2 mt-6 text-black">Summer Sale</h1>
       <p className="text-xl mb-8">Up to 50% off on selected items</p>
       <a href="#" className="bg-white text-blue-600 py-2 px-6 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">Shop Now</a>
     </div>
@@ -27,7 +27,7 @@ const ProductCard = ({ name, price, imageUrl }) => (
 const FeaturedProducts = () => (
   <section className="py-12 bg-gray-100">
     <div className="container mx-auto px-6">
-      <h2 className="text-2xl font-bold mb-8 text-center">Featured Products</h2>
+      <h2 className="text-2xl font-bold mb-20 text-center">Featured Products</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ProductCard name="Classic T-Shirt" price="29.99" imageUrl="https://i.pinimg.com/236x/6c/9f/a5/6c9fa5771260189715a7fedb50bacede.jpg" />
         <ProductCard name="Denim Jeans" price="59.99" imageUrl="https://i.pinimg.com/236x/f2/de/da/f2deda46c89f483838eb3b0be88fee80.jpg" />
