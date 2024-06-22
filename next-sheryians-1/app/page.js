@@ -1,52 +1,85 @@
-import Nav from "@/components/Nav";
+"use client";
+
 import React from "react";
 
-const page = () => {
-  return (
-    <div>
-      <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-        <div class="container px-4 md:px-6">
-          <div class="flex flex-col items-center space-y-4 text-center">
-            <div class="flex flex-col items-center space-y-2">
-              {/* <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                The fastest way to build the Web
-              </h1> */}
-              <p class="mx-auto max-w-[700px] text-gray-500 md:text-2xl font-bold dark:text-gray-400">
-                The platform for the future of the web. Sign up to be the first
-                to experience it.
-              </p>
-            </div>
-            <div class="w-full max-w-sm space-y-2">
-              <form class="grid gap-2">
-                <input
-                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-                <input
-                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  type="text"
-                  placeholder="Enter your name"
-                />
-                <button
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                  type="submit"
-                >
-                  Sign Up
-                </button>
-              </form>
-              <p class="text-xs text-gray-500 dark:text-gray-400">
-                Sign up to get notified when we launch.
-                <a class="underline underline-offset-2" href="#">
-                  Terms &amp; Conditions
-                </a>
-              </p>
-            </div>
+
+const HeroSection = () => (
+  <section className="bg-blue-600 text-white py-20">
+    <div className="container mx-auto px-6 text-center">
+      <h1 className="text-5xl font-bold mb-2 text-black">Summer Sale</h1>
+      <p className="text-xl mb-8">Up to 50% off on selected items</p>
+      <a href="#" className="bg-white text-blue-600 py-2 px-6 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">Shop Now</a>
+    </div>
+  </section>
+);
+
+const ProductCard = ({ name, price, imageUrl }) => (
+  <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <img src={imageUrl} alt={name} className="w-full h-80 object-contain" />
+    <div className="p-4">
+      <h3 className="text-lg font-semibold mb-2">{name}</h3>
+      <p className="text-gray-600">${price}</p>
+      <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Add to Cart</button>
+    </div>
+  </div>
+);
+
+const FeaturedProducts = () => (
+  <section className="py-12 bg-gray-100">
+    <div className="container mx-auto px-6">
+      <h2 className="text-2xl font-bold mb-8 text-center">Featured Products</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ProductCard name="Classic T-Shirt" price="29.99" imageUrl="https://i.pinimg.com/236x/6c/9f/a5/6c9fa5771260189715a7fedb50bacede.jpg" />
+        <ProductCard name="Denim Jeans" price="59.99" imageUrl="https://i.pinimg.com/236x/f2/de/da/f2deda46c89f483838eb3b0be88fee80.jpg" />
+        <ProductCard name="Sneakers" price="79.99" imageUrl="https://i.pinimg.com/236x/b7/2c/fa/b72cfa229ecc0a0fa7294db641ac69e8.jpg" />
+      </div>
+    </div>
+  </section>
+);
+
+const Footer = () => (
+  <footer className="bg-gray-800 text-white py-8">
+    <div className="container mx-auto px-6">
+      <div className="flex flex-wrap justify-between">
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 className="text-lg font-semibold mb-2">ShopNow</h3>
+          <p className="text-gray-400">Your one-stop shop for all your needs.</p>
+        </div>
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+          <ul className="text-gray-400">
+            <li><a href="#" className="hover:text-white">Home</a></li>
+            <li><a href="#" className="hover:text-white">Products</a></li>
+            <li><a href="#" className="hover:text-white">About Us</a></li>
+            <li><a href="#" className="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
+          <div className="flex space-x-4">
+            <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
+            <a href="#" className="text-gray-400 hover:text-white">Twitter</a>
+            <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
           </div>
         </div>
-      </section>
+      </div>
+      <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-center text-gray-400">
+        © 2024 ShopNow. All rights reserved.
+      </div>
+    </div>
+  </footer>
+);
+
+const Page = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow">
+        <HeroSection />
+        <FeaturedProducts />
+      </main>
+      <Footer />
     </div>
   );
 };
 
-export default page;
+export default Page;
