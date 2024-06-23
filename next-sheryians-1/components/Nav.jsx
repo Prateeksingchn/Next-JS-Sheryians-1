@@ -1,42 +1,45 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import React from 'react';
+import { FaShoppingCart, FaSearch } from 'react-icons/fa';
 
 const Nav = () => {
   return (
-    <nav className="bg-white shadow-md py-4 px-8 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center">
-
-      {/* Logo & Brand */}
-      <Link href="/" className="flex items-center">
-        <Image 
-          src="/logo.png" // Replace with your logo path
-          alt="Your Store Name"
-          width={40} // Adjust as needed
-          height={40}
-        />
-        <span className="ml-2 font-bold text-lg">Your Store Name</span>
-      </Link>
-
-      {/* Navigation Links */}
-      <ul className="flex space-x-8">
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/product">Products</Link></li>
-        <li><Link href="/about">About</Link></li>
-        {/* Add more links as needed */}
-      </ul>
-
-      {/* Action Buttons */}
-      <div className="flex items-center space-x-4">
-        <Link href="/cart">
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-        </Link>
-        <Link href="/account" className="text-blue-500 hover:underline">Account</Link>
+    <nav className='bg-emerald-500 shadow-lg'>
+      <div className='container mx-auto flex justify-between items-center py-5 px-6 md:px-12'>
+        <div className='flex items-center'>
+          <h1 className='text-white text-2xl font-bold'>Sher</h1>
+        </div>
+        
+        <div className='flex items-center space-x-4'>
+          <div className='relative'>
+            <input
+              type='text'
+              className='px-4 py-2 rounded-full text-gray-800'
+              placeholder='Search...'
+            />
+            <FaSearch className='absolute right-3 top-3 text-gray-600' />
+          </div>
+          
+          <div className='flex space-x-6'>
+            <Link href="/" className='text-white text-lg hover:text-gray-200'>
+              Home
+            </Link>
+            <Link href="/product" className='text-white text-lg hover:text-gray-200'>
+              Product
+            </Link>
+            <Link href="/about" className='text-white text-lg hover:text-gray-200'>
+              About
+            </Link>
+          </div>
+          
+          <Link href="/cart" className='relative text-white text-lg hover:text-gray-200'>
+            <FaShoppingCart />
+            <span className='absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1'>3</span>
+          </Link>
+        </div>
       </div>
-
     </nav>
   );
-};
+}
 
 export default Nav;
